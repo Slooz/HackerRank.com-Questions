@@ -11,13 +11,6 @@ std::string Convert12To24HourTime(std::string twelve_hour_time) {
   std::string time = twelve_hour_time.substr(0, 8);
   std::string period = twelve_hour_time.substr(8, 2);
 
-  if (twelve_hour_time == "12:00:00") {
-    if (IsMorning(period)) {
-      return "00:00:00";
-    }
-    return "12:00:00";
-  }
-
   int hour = std::stoi(time.substr(0, 2));
   if (hour == 12) {
     if (IsMorning(period)) {
@@ -39,4 +32,5 @@ int main() {
 
   std::string twenty_four_hour_time = Convert12To24HourTime(twelve_hour_time);
   std::cout << twenty_four_hour_time;
+  std::cin >> twelve_hour_time;
 }
